@@ -31,6 +31,7 @@ _ --> b = b
 freeAlg :: FormF (Set Iden) -> Set Iden
 freeAlg =
   let f (Var i) = singleton i
+      f (Let i _ x) = i `delete` x
       f x = fold x in
       f
 
